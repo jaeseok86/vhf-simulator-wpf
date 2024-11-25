@@ -4,19 +4,17 @@ using VHF_Client.ViewModel;
 namespace VHF_Client.View
 {
     /// <summary>
-    /// ucVHF.xaml에 대한 상호 작용 논리
+    /// VHFView.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class ucVHF : UserControl
+    public partial class VHFView : UserControl
     {
         VHFViewModel viewModel = new VHFViewModel();
 
-        public ucVHF()
+        public VHFView()
         {
             InitializeComponent();
 
-            DataContext = viewModel; // new VHFViewModel();
-
-            //viewModel = DataContext as VHFViewModel;
+            DataContext = viewModel;
         }
 
         public void CloseProcess()

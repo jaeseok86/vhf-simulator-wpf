@@ -25,15 +25,9 @@ namespace VHF_Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        //ucVHF vhfClient = null;
-
         public MainWindow()
         {
             InitializeComponent();
-
-            //MainContentControl.Content = new ucVHF();
-
-            //vhfClient = MainContentControl.Content as ucVHF;
 
             this.KeyDown += MainWindow_KeyDown;
             this.KeyUp += MainWindow_KeyUp;

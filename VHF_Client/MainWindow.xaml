@@ -16,8 +16,8 @@
             <ColumnDefinition Width="40"/>
         </Grid.ColumnDefinitions>
 
-        <localView:ucVHF x:Name="gridVhfClient" Grid.Column="0"/>
-        <localView:ucKeypad Grid.Column="1" Background="#434345" />
+        <localView:VHFView x:Name="gridVhfClient" Grid.Column="0"/>
+        <localView:KeypadView Grid.Column="1" Background="#434345" />
         <localView:VolumeControlView Grid.Column="2" Background="#232325"/>
     </Grid>
 </Window>

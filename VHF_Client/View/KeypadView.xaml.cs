@@ -17,11 +17,11 @@ using VHF_Client.ViewModel;
 namespace VHF_Client.View
 {
     /// <summary>
-    /// ucKeypad.xaml에 대한 상호 작용 논리
+    /// KeypadView.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class ucKeypad : UserControl
+    public partial class KeypadView : UserControl
     {
-        public ucKeypad()
+        public KeypadView()
         {
             InitializeComponent();
 
