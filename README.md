@@ -1,2 +1,2 @@
-# str-vhf-wpf
+# vhf-simulator-wpf
 VHF Server, VHF Client
