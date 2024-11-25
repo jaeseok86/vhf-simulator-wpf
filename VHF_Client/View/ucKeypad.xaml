@@ -1,0 +1,228 @@
+﻿<UserControl x:Class="VHF_Client.View.ucKeypad"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VHF_Client.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="320" d:DesignWidth="250">
+
+    <UserControl.Resources>
+        <Style x:Key="NumberButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="1"
+                                CornerRadius="10"
+                                Margin="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              Content="{TemplateBinding Content}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="gray"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="black"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style x:Key="NumberToggleButtonStyle" TargetType="ToggleButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="1"
+                        CornerRadius="10"
+                        Margin="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                      Content="{TemplateBinding Content}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Gray"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="goldenrod"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="DarkOrange"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="15,30,15,15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <UniformGrid Grid.Row="0" Columns="3" Margin="0">
+            <Button Command="{Binding Number1Command}" CommandParameter="1" Style="{StaticResource NumberButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="1 DUAL" TextAlignment="Center"/>
+                        <Border Background="Black" CornerRadius="5">
+                            <TextBlock Text="_QZ" TextAlignment="Center" Foreground="White"/>
+                        </Border>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding Number2Command}" CommandParameter="2" Style="{StaticResource NumberButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="2 TRI  " TextAlignment="Center"/>
+                        <Border Background="Black" CornerRadius="5">
+                            <TextBlock Text="ABC" TextAlignment="Center" Foreground="White"/>
+                        </Border>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding Number3Command}" CommandParameter="3" Style="{StaticResource NumberButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="3 DIM  " TextAlignment="Center"/>
+                        <Border Background="Black" CornerRadius="5">
+                            <TextBlock Text="DEF" TextAlignment="Center" Foreground="White"/>
+                        </Border>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding Number4Command}" CommandParameter="4" Style="{StaticResource NumberButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="4 SCN  " TextAlignment="Center"/>
+                        <Border Background="Black" CornerRadius="5">
+                            <TextBlock Text="GHI" TextAlignment="Center" Foreground="White"/>
+                        </Border>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding Number5Command}" CommandParameter="5" Style="{StaticResource NumberButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="5 TSCN" TextAlignment="Center"/>
+                        <Border Background="Black" CornerRadius="5">
+                            <TextBlock Text="JKL" TextAlignment="Center" Foreground="White"/>
+                        </Border>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding Number6Command}" CommandParameter="6" Style="{StaticResource NumberButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="6 TAG  " TextAlignment="Center"/>
+                        <Border Background="Black" CornerRadius="5">
+                            <TextBlock Text="MNO" TextAlignment="Center" Foreground="White"/>
+                        </Border>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding Number7Command}" CommandParameter="7" Style="{StaticResource NumberButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="7 ITU  " TextAlignment="Center"/>
+                        <Border Background="Black" CornerRadius="5">
+                            <TextBlock Text="PRS" TextAlignment="Center" Foreground="White"/>
+                        </Border>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding Number8Command}" CommandParameter="8" Style="{StaticResource NumberButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="8 USA  " TextAlignment="Center"/>
+                        <Border Background="Black" CornerRadius="5">
+                            <TextBlock Text="TUV" TextAlignment="Center" Foreground="White"/>
+                        </Border>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding Number9Command}" CommandParameter="9" Style="{StaticResource NumberButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="9 CAN  " TextAlignment="Center"/>
+                        <Border Background="Black" CornerRadius="5">
+                            <TextBlock Text="WXY" TextAlignment="Center" Foreground="White"/>
+                        </Border>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button Command="{Binding DelButtonExecute_cmd}" Style="{StaticResource NumberButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text=" TGO " TextAlignment="Center"/>
+                        <TextBlock Text="WX/CE" TextAlignment="Center"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button Command="{Binding Number0Command}" CommandParameter="0" Style="{StaticResource NumberButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="0 TEST" TextAlignment="Center"/>
+                        <Border Background="Black" CornerRadius="5">
+                            <TextBlock Text="* _ /" TextAlignment="Center" Foreground="White"/>
+                        </Border>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <!--<Button x:Name="EnterButton" Content="ENT" Command="{Binding EnterCommand}" Style="{StaticResource NumberButtonStyle}" Background="DarkSeaGreen"/>-->
+            <Button Command="{Binding EnterCommand}" Style="{StaticResource NumberButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text=" H/L " TextAlignment="Center"/>
+                        <TextBlock Text="ENT" TextAlignment="Center"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <!-- DEL Button -->
+        </UniformGrid>
+
+        <Grid Grid.Row="1">
+
+            <UniformGrid Grid.Row="1" Columns="3" Margin="0">
+                <Button Content="MENU" Style="{StaticResource NumberButtonStyle}"/>
+
+                <Button Content="CLR" Command="{Binding MainCommand}" Style="{StaticResource NumberButtonStyle}"/>
+
+                <!--<Button Content="F" Background="DarkOrange" Foreground="White" Command="{Binding FunctionCommand}" Style="{StaticResource NumberButtonStyle}"/>-->
+                <ToggleButton Content="F" Background="DarkOrange" Foreground="White" Command="{Binding FunctionCommand}" Style="{StaticResource NumberToggleButtonStyle}"/>
+
+            </UniformGrid>
+        </Grid>
+    </Grid>
+</UserControl>

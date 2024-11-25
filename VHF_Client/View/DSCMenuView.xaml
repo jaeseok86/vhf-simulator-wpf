@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="VHF_Client.View.DSCMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VHF_Client.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="310" d:DesignWidth="350">
+
+    <UserControl.Resources>
+        <!-- Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="1"
+                        CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                      Content="{TemplateBinding Content}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="gray"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="black"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="DimGray"/>
+                                <Setter Property="Foreground" Value="DarkGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="3"/>
+            <!--<Setter Property="FontFamily" Value="arial"/>-->
+        </Style>
+    </UserControl.Resources>
+
+    <Border BorderThickness="1" BorderBrush="Black" Margin="10" Background="White">
+        <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnDistressCAll" Grid.Row="0" Grid.Column="0" Content="DISTRESS CALL" Click="btnDistressCAll_Click"/>
+                <Button x:Name="btnAllShipCall" Grid.Row="1" Grid.Column="0" Content="ALL SHIP CALL" Click="btnAllShipCall_Click"/>
+                <Button x:Name="btnIndividualCall" Grid.Row="2" Grid.Column="0" Content="INDIVIDUAL CALL" Click="btnIndividualCall_Click"/>
+                
+                <Button Grid.Row="3" Grid.Column="0" IsEnabled="False" Content="AUTO/SEMI CALL"/>
+                <Button Grid.Row="4" Grid.Column="0" IsEnabled="False" Content="TEST CALL"/>
+                <Button Grid.Row="5" Grid.Column="0" IsEnabled="False" Content="GROUP CALL"/>
+                <Button Grid.Row="6" Grid.Column="0" IsEnabled="False" Content="POSITION POLL"/>
+
+                <Button Grid.Row="0" Grid.Column="1" IsEnabled="False" Content="DISTRESS RELAY"/>
+                <Button Grid.Row="1" Grid.Column="1" IsEnabled="False" Content="DISTRESS RLY ACK"/>
+                <Button Grid.Row="2" Grid.Column="1" IsEnabled="False" Content="DISTRESS ACK"/>
+                <Button Grid.Row="3" Grid.Column="1" IsEnabled="False" Content="OTHERS ACK"/>
+                <Button Grid.Row="4" Grid.Column="1" IsEnabled="False" Content="DIRECT RELAY"/>
+                <Button Grid.Row="5" Grid.Column="1" IsEnabled="False" Content="RCV DISTRESS READ"/>
+                <Button Grid.Row="6" Grid.Column="1" IsEnabled="False" Content="RCV OTHERS READ"/>
+            </Grid>
+
+            <Grid Name="gridSubView" Visibility="Collapsed"/>
+
+        </Grid>
+    </Border>
+</UserControl>
